@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
     BookMarkIcon,
     ExploreIcon,
@@ -9,27 +10,39 @@ import {
 const navElements = [
     {
         name: "Home",
+        route:"/",
         icon: HomeIcon,
     },
     {
         name: "Explore",
+        route:"/explore",
         icon: ExploreIcon,
     },
     {
         name: "Bookmarks",
+        route:"/bookmarks",
         icon: BookMarkIcon,
     },
     {
         name: "Notifications",
+        route:"/notifications",
         icon: NotificationIcon,
     },
     {
         name: "Profile",
+        route:"/profile",
         icon: ProfileIcon,
     },
 ];
 export default function Sidebar() {
     const [selectedButton, setSelectedButton] = useState(navElements[0].name);
+
+    const navigate = useNavigate();
+
+    const navigateHandler = (name,route="/") => {
+        setSelectedButton(name);
+        navigate(route)
+    }
 
     return (
         <div className="sidebar">
@@ -42,7 +55,7 @@ export default function Sidebar() {
                                     ? "text-green-400 font-semibold bg-green-50  border-green-300"
                                     : "text-gray-400 border-white"
                             } font-medium border-l-4 text-base px-8 py-4 text-left`}
-                            onClick={() => setSelectedButton(element.name)}
+                            onClick={() => navigateHandler(element.name,element.route)}
                         >
                             <span className="flex-shrink-0">
                                 {element.icon()}
