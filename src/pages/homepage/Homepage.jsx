@@ -32,6 +32,9 @@ export default function Homepage() {
             {cardArray.map((card) => {
                 return <PostCard {...card} />;
             })}
+            {cardArray.map((card) => {
+                return <PostCard {...card} />;
+            })}
         </div>
     );
 }

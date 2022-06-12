@@ -63,7 +63,7 @@
     grid-area: sidebar;
     position: sticky;
     top: 80px;
-    height: max-content;
+    height: calc(100vh - 7rem);
 }
 
 .suggestions-container {
