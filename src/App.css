@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,40 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.App {
+    display: grid;
+    grid-template-areas:
+        "navbar navbar navbar navbar navbar"
+        "... sidebar main suggestions ...";
+    grid-template-columns: auto minmax(12rem,18rem) minmax(30rem,36rem) minmax(12rem,20rem) auto;
+    grid-template-rows: auto 1fr;
+    gap: 20px;
+    min-height: 100vh;
+}
+
+.main {
+    grid-area: main;
+}
+
+.navbar {
+    grid-area: navbar;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    position: sticky;
+    top: 80px;
+    height: calc(100vh - 7rem);
+}
+
+.suggestions-container {
+    grid-area: suggestions;
+    position: sticky;
+    top: 80px;
+    height: max-content;
 }
